@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="btn btn-secondary mb-3">← Accueil</a>
+
+<table class="table table-bordered table-striped">
+  <thead class="table-primary">
+    <tr>
+      <th>ID</th>
+      <th>Audio</th>
+      <th>Fichier</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in temoignages %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>
+        <audio controls preload="none" class="audio-player" style="width: 200px;">
+	  <source src="{{ url_for('static', filename='audios/' + t.filename) }}" type="audio/mpeg">
+	  Votre navigateur ne supporte pas la lecture audio.
+	</audio>
+      </td>
+      <td>{{ t.filename }}</td>
+      <td>{{ t.date }}</td>
+      <td>
+        <a href="{{ url_for('supprimer', id=t.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer ce témoignage ?')">🗑️ Supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

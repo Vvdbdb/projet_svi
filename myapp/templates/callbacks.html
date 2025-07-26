@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="btn btn-secondary mb-3">← Accueil</a>
+
+<table class="table table-striped">
+  <thead class="table-info">
+    <tr>
+      <th>ID</th>
+      <th>Numéro</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in callbacks %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ c.number }}</td>
+      <td>{{ c.date }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

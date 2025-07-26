@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('temoignages') }}" class="btn btn-secondary mb-3">← Retour</a>
+
+<h4>Écouter le témoignage</h4>
+<audio controls autoplay class="w-100">
+  <source src="{{ filename }}" type="audio/wav">
+  Audio non supporté par votre navigateur.
+</audio>
+{% endblock %}
