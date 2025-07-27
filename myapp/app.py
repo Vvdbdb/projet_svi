@@ -10,7 +10,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="passer",  # Mets ton mot de passe ici si besoin
+        password="passer",  
         database="safe_db"
     )
 
